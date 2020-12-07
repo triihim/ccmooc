@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Insecure Blog - Register</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row p-5 justify-content-center">
+            <div class="col-xl-4 col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Register</h1>
+                        <form class="form-group" action="/register" method="POST">
+                            <input class="form-control" type="text" name="username" placeholder="Username">
+                            <br/>
+                            <input class="form-control" type="password" name="password" placeholder="Password">
+                            <br/>
+                            <button class="btn btn-primary" type="submit">Register</button>
+                        </form>
+                        <a href="/login">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

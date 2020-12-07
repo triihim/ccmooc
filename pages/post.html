@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Insecure Blog - {title}</title>
+</head>
+<body>
+    <div class="container-fluid p-2">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <header>
+                    <ul class="nav nav-pills my-3 d-flex">
+                        <li class="nav-item mr-auto">
+                            <a class="nav-link" href="/">Posts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-secondary" href="/logout">Logout</a>
+                        </li>
+                    </ul>
+                </header>
+            </div>
+        </div>
+        <hr>
+        <div class="row justify-content-center">
+            <div class="col-xl-6 m-3">
+                <h1 id="title">{title}</h1>
+                <h6 id="author">{author}</h6>
+                <p id="body">{body}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
