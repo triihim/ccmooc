@@ -26,7 +26,7 @@ app.post("/login", async (req, res) => {
         res.cookie("sessionId", sessionId, { httpOnly: true });
         return res.redirect("/")
     } catch (error) {
-        return res.redirect("/error");
+        return res.status(500).send(error);
     }
 });
 
@@ -35,7 +35,7 @@ app.get("/logout", (req, res) => {
         logout(req.session);
         return res.redirect("/");
     } catch(error) {
-        return res.redirect("/error");
+        return res.status(500).send(error);
     }
 });
 
@@ -57,7 +57,7 @@ app.post("/register", async (req, res) => {
             return res.redirect("/");
         }
     } catch(error) {
-        return res.redirect("/error");
+        return res.status(500).send(error);
     }
 });
 
@@ -66,7 +66,7 @@ app.get("/posts", requireAuthentication, async (req, res) => {
         const posts = await getPosts();
         return res.json(posts);
     } catch(error) {
-        return res.redirect("/error");
+        return res.status(500).send(error);
     }
 });
 
@@ -86,7 +86,7 @@ app.post("/posts/create", requireAuthentication, async (req, res) => {
             return res.redirect("/");
         }
     } catch(error) {
-        return res.redirect("/error");
+        return res.status(500).send(error);
     }
 });
 
@@ -112,7 +112,7 @@ app.get("/posts/:postId", requireAuthentication, async (req, res) => {
                 throw new Error("Post not found");
             }
         } catch(error) {
-            return res.redirect("/error");
+            return res.status(500).send(error);
         }
     }
 });
@@ -127,13 +127,9 @@ app.delete("/posts/:postId", requireAuthentication, async (req, res) => {
             return res.redirect("/");
         }
     } catch(error) {
-        return res.redirect("/error");
+        return res.status(500).send(error);
     }
 
-});
-
-app.get("/error", requireAuthentication, (req, res) => {
-    return res.sendFile(path.join(__dirname, "/pages/error.html"));
 });
 
 app.get("/", requireAuthentication, (req, res) => {

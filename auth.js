@@ -1,7 +1,5 @@
 const db = require("./in-memory-db");
 
-// TODO: Remove logs
-
 const authenticate = async (username, password) => {
     const user = await db.getUserByUsername(username);
     if(user.password.normalize() === password.normalize()) {
